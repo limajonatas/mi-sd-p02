@@ -27,21 +27,21 @@
     cmp     r3, #5     
     bgt     fim_n         //se r3 > 3
 
-    mul     r4, r3, r3        @ r4 = N*N (total de elementos)
-    mov     r5, #0            @ r5 = índice = 0
+    mul     r4, r3, r3        // r4 = N*N (total de elementos)
+    mov     r5, #0            // r5 = índice = 0
 
   loop_n:
-    cmp     r5, r4            @ Já somou N*N elementos?
-    bge     fim_n             @ Se sim, termina
+    cmp     r5, r4            // Já somou N*N elementos?
+    bge     fim_n             // Se sim, termina
 
-    ldrb    r6, [r0, r5]      @ r6 = A[i]
-    ldrb    r7, [r1, r5]      @ r7 = B[i]
-    add     r6, r6, r7        @ r6 = A[i] + B[i]
-    strb    r6, [r2, r5]      @ C[i] = r6
+    ldrb    r6, [r0, r5]      // r6 = A[i]
+    ldrb    r7, [r1, r5]      // r7 = B[i]
+    add     r6, r6, r7        // r6 = A[i] + B[i]
+    strb    r6, [r2, r5]      // C[i] = r6
 
-    add     r5, r5, #1        @ índice++
+    add     r5, r5, #1        // índice++
     b       loop_n
 
   fim_n:
-    pop     {r4-r7, pc}       @ Restaura registradores e retorna
+    pop     {r4-r7, pc}       // Restaura registradores e retorna
 
